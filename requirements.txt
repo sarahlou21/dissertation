@@ -1,0 +1,15 @@
+torch
+torchvision
+pandas
+numpy
+tqdm
+pillow
+matplotlib
+seaborn
+scikit-learn
+https://github.com/ufoym/imbalanced-dataset-sampler/archive/master.zip
+wandb
+opencv-python
+timm
+scikit-image
+scipy
