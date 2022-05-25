@@ -7,7 +7,7 @@ pillow
 matplotlib
 seaborn
 scikit-learn
-https://github.com/ufoym/imbalanced-dataset-sampler/archive/master.zip
+torchsampler
 wandb
 opencv-python
 timm
