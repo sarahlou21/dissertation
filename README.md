@@ -12,8 +12,7 @@ It is ran as part of the jupyter notebook, or you can install manually using `pi
 
 The ISIC Challenge Dataset from **2019** should be downloaded from here https://challenge.isic-archive.com/data/#2019.
 
-All of the training data including images, metadata and ground truth should be downloaded. This data will make up our whole dataset for this project.
-
+The training data for tasks 1 and 2 along with the training ground truth should be downloaded. This data will make up our whole dataset for this project.
 
 ## Part 1: Image Quality
 
@@ -53,7 +52,7 @@ skin_lesion_data\ISIC_2019_v2_prepro
 
 
 ### 2. "pre_processing_classes.ipynb"
-The images undergo pre-processing. Several techniques were trialled and the code for each technique is contained in this file.
+The images undergo pre-processing. Several techniques were trialed and the code for each technique is contained in this file.
 
 This file contains several classes, for image preprocessing. Including:
 - HairRemoval(): hair removal.
@@ -61,11 +60,11 @@ This file contains several classes, for image preprocessing. Including:
 - ShadesOfGrey(): colour adaptation.
 - ImageResize(): using the PIL package resize with the bilinear option.
 
-Further, the code used to apply the final chosen pre-processing stages (hair removal and cropping stragey) to all images is included.
+Further, the code used to apply the final chosen pre-processing stages (hair removal and cropping stragey) to all images is included, ShadesOfGrey() was not used.
 
 ### 3. "data_quality_assessment.ipynb"
 
-First stage was to assess the data quality, in order to determine whether exploring data quality within the skin lesion dataset would be a variable investigation. To do this we used the PyTorch Image Quality (PIQ) package, further information available at: https://github.com/photosynthesis-team/piq and package documentation at: https://piq.readthedocs.io/en/latest/functions.html
+We first trialed several methods to determine image quality. To do this we used the PyTorch Image Quality (PIQ) package, further information available at: https://github.com/photosynthesis-team/piq and package documentation at: https://piq.readthedocs.io/en/latest/functions.html
 
 We have initially chosen, Blind/Referenceless Image Spatial Quality Evaluator (BRISQUE) and Total Variation (TV), as both of these are No Reference Metrics. The exploration of using BRISQUE and TV is found in this file.
 
@@ -143,9 +142,9 @@ skin_lesion_data\ISIC_2019_v2_prepro_binary
 
 ### 5. "bias_binary_model.ipynb"
 
-This file conains the stages for binary-class classification. It is simialar and uses the same hyperparameters as for the multi-class classification used in Part 1, however instead handles only two classes. The data folder has already been pre-organised to contain two folders for the two classes, NON-MEL and MEL.
+This file contains the stages for binary-class classification. It is similar and uses the same hyperparameters as for the multi-class classification used in Part 1, however instead handles only two classes. The data folder has already been pre-organised to contain two folders for the two classes, NON-MEL and MEL.
 
-This file also contains a custom image sampler that allows for different ratios of female:male images to be sampled, this was created to test the performance on the model by using imbalanced geneder ratios, we tested equal numbers of female:male images of 6000:6000 and then with 2000:10000 images.
+This file also contains a custom image sampler that allows for different ratios of female:male images to be sampled, this was created to test the performance on the model by using imbalanced gender ratios, we tested equal numbers of female:male images of 6000:6000 and then with 2000:10000 images.
 
 Weights and Biases is used to monitor all metrics (F1, balanced accuracy, precision and recall).
 If you have an account with Weights and Biases (https://wandb.ai/site), then set 'use_wandb' to TRUE and enter your username in the 'entity' variable. Once the following configurations are made, run the entire notebook.
