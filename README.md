@@ -72,10 +72,10 @@ We chose BRISQUE as our IQA. We calculated the scores for the whole dataset, aft
 
 ### 4. "quality_models.ipynb"
 
-This file contains the script for multi-class classification. This includes custom classes, such as ImageResize() and the several Custom data samplers tested in this project.
+This file contains the script for training the multi-class classification model. This includes custom classes, such as ImageResize() and the several Custom data samplers tested in this project.
 Several hyperparameters were tested such as batch size, epochs and different schedulers.
 We compared the performance of using two techniques for class imbalance, including the Imbalanced Dataset Sampler (https://github.com/ufoym/imbalanced-dataset-sampler) and weighted cross-entropy.
-We also trialled various augmentation techniques including automated augmentation.
+We also trialed various augmentation techniques including automated augmentation.
 
 The network was built using DenseNet architecture.
 
@@ -103,7 +103,7 @@ Further information from our work was also added this included; skin tone, image
 
 Initially, the same multi-class classification model as used for Part 1 Image Quality was used. However, after analysing the results, we noticed that many of the categories within the metadata did not have any data.
 
-Therefore, we re-evaluted our method and went on to design a binary classification model.
+Therefore, we re-evaluated our method and went on to design a binary classification model.
 
 ### 3. "data_balance.ipynb"
 
@@ -112,10 +112,10 @@ We performed Exploratory Data Analysis (EDA) to explore the metadata. This file 
 - Lesion Class type: 8 classes including melanoma (MEL), melanocytic nevus (NV), basal cell carcinoma (BCC), actinic keratosis (AK), benign keratosis (BKL), dermatofibroma (DF), vascular lesion (VASC), squamous cell carcinoma (SCC).
 - Gender: contained two categories; male and female.
 - Age: a group for the nearest 5th year from 0 to 85 years.
-- Skin tone: six fitzpatrick skin tones, from 1-6.
+- Skin tone: six Fitzpatrick skin tones, from 1-6.
 - Skin lesion anatomical location: contained eight categories, including anterior torso, head/neck, lateral torso, lower extremity, oral/genital, palms/soles, posterior torso and upper extremity.
 
-After data manipluation the metadata variables were the same except for the Skin lesion class and age, which were now structured as:
+After data manipulation the metadata variables were the same except for the Skin lesion class and age, which were now structured as:
 
 - Class: melanoma (MEL) and non-melanoma (NONMEL).
 - Age: four categories; 0-20, 21-40, 41-60 and >60 years.
@@ -124,8 +124,8 @@ EDA has been performed in both cases, for the whole dataset as well as for each 
 
 ### 4. "bias_model_file_reorganising.ipynb"
 
-In order to approach our classifcation as a binary rather than multi-class, we re-organised the skin lesion classes.
-To do so we made a copy of the data, and reorganised each of the folders (train, val and test) so that within each folder the 7 non-melanoma class subfolders are merged, so that it results in two folders MEL and NONMEL.
+In order to approach our classification as a binary rather than multi-class, we re-organised the skin lesion classes.
+To do so we made a copy of the data, and reorganised each of the folders (train, val and test) so that within each folder the 7 non-melanoma class subfolders are merged, so that it results in two folders MEL and NON_MEL.
 
 ```
 skin_lesion_data\ISIC_2019_v2_prepro_binary
@@ -155,7 +155,7 @@ This file includes the results from binary classification for gender, skin tone,
 
 The metrics included, balanced accuracy, F1, precision and recall.
 
-Statistical testing including Spearmans rank correlation and Chi-squared testing was also used alongside graphical representation of results.
+Statistical testing including Spearman's rank correlation and Chi-squared testing was also used alongside graphical representation of results.
 
 ### 8. "mel_vs_nonmel.csv"
 This .csv contains the information as described in "ISIC_2019_Training_Metadata_with_full_paths_with_brisque_and_class.csv" but with adaptations, these include the binary lesion class, either MEL or NON_MEL. In addition, the age group that is now either one of four categories; 0-20, 21-40, 41-60 and >60 years.
