@@ -63,7 +63,7 @@ This file contains several classes, for image preprocessing. Including:
 
 Further, the code used to apply the final chosen pre-processing stages (hair removal and cropping stragey) to all images is included.
 
-3. "data_quality_assessment.ipynb"
+### 3. "data_quality_assessment.ipynb"
 
 First stage was to assess the data quality, in order to determine whether exploring data quality within the skin lesion dataset would be a variable investigation. To do this we used the PyTorch Image Quality (PIQ) package, further information available at: https://github.com/photosynthesis-team/piq and package documentation at: https://piq.readthedocs.io/en/latest/functions.html
 
@@ -71,7 +71,7 @@ We have initially chosen, Blind/Referenceless Image Spatial Quality Evaluator (B
 
 We chose BRISQUE as our IQA. We calculated the scores for the whole dataset, after image pre-processing had taken place.
 
-4. "quality_models.ipynb"
+### 4. "quality_models.ipynb"
 
 This file contains the script for multi-class classification. This includes custom classes, such as ImageResize() and the several Custom data samplers tested in this project.
 Several hyperparameters were tested such as batch size, epochs and different schedulers.
@@ -83,30 +83,30 @@ The network was built using DenseNet architecture.
 Weights and Biases is used to monitor all metrics (F1, balanced accuracy, precision and recall).
 If you have an account with Weights and Biases (https://wandb.ai/site), then set 'use_wandb' to TRUE and enter your username in the 'entity' variable. Once the following configurations are made, run the entire notebook.
 
-5. "graphs_BRISQUE_vs_random_results.ipynb"
+### 5. "graphs_BRISQUE_vs_random_results.ipynb"
 
 The results from wandb were downloaded to produce the final graphical representations for balanced accuracy an F1 for the final dissertation report.
 
-6. "ISIC_2019_Training_Metadata_with_full_paths_with_brisque_and_class.csv"
+### 6. "ISIC_2019_Training_Metadata_with_full_paths_with_brisque_and_class.csv"
 This .csv contains the original .csv data from the metadata file downloaded from ISIC 2019, this includes the metadata variables.
 Further information from our work was also added this included; skin tone, image BRISQUE score, skin lesion class, full image path and data split (train, validation or test).
 
 
 ## Part 2: Data Bias
 
-1. "skin_colour.ipynb"
+### 1. "skin_colour.ipynb"
 
  We calculated the skin colour using the method described by Bevan et al.  https://arxiv.org/pdf/2202.02832.pdf using code supplied in the authors publicly available github repository https://github.com/pbevan1/Detecting-Melanoma-Fairly
 
  We then, combined the skin tone to the existing ISIC metadata in one .csv file.
 
-2. "8_class_model_data_bias_results.ipynb"
+### 2. "8_class_model_data_bias_results.ipynb"
 
 Initially, the same multi-class classification model as used for Part 1 Image Quality was used. However, after analysing the results, we noticed that many of the categories within the metadata did not have any data.
 
 Therefore, we re-evaluted our method and went on to design a binary classification model.
 
-3. "data_balance.ipynb"
+### 3. "data_balance.ipynb"
 
 We performed Exploratory Data Analysis (EDA) to explore the metadata. This file explores the metadata variables and their categories. This initially was comprised of the following:
 
@@ -123,7 +123,7 @@ After data manipluation the metadata variables were the same except for the Skin
 
 EDA has been performed in both cases, for the whole dataset as well as for each split, train, validation and test to ensure each split was representative of the whole dataset.
 
-4. "bias_model_file_reorganising.ipynb"
+### 4. "bias_model_file_reorganising.ipynb"
 
 In order to approach our classifcation as a binary rather than multi-class, we re-organised the skin lesion classes.
 To do so we made a copy of the data, and reorganised each of the folders (train, val and test) so that within each folder the 7 non-melanoma class subfolders are merged, so that it results in two folders MEL and NONMEL.
@@ -141,7 +141,7 @@ skin_lesion_data\ISIC_2019_v2_prepro_binary
 │   └───NON_MEL
 ```
 
-5. "bias_binary_model.ipynb"
+### 5. "bias_binary_model.ipynb"
 
 This file conains the stages for binary-class classification. It is simialar and uses the same hyperparameters as for the multi-class classification used in Part 1, however instead handles only two classes. The data folder has already been pre-organised to contain two folders for the two classes, NON-MEL and MEL.
 
@@ -150,7 +150,7 @@ This file also contains a custom image sampler that allows for different ratios 
 Weights and Biases is used to monitor all metrics (F1, balanced accuracy, precision and recall).
 If you have an account with Weights and Biases (https://wandb.ai/site), then set 'use_wandb' to TRUE and enter your username in the 'entity' variable. Once the following configurations are made, run the entire notebook.
 
-6. "binary_model_data_bias_results.ipynb"
+### 6. "binary_model_data_bias_results.ipynb"
 
 This file includes the results from binary classification for gender, skin tone, age and anatomical skin lesion location.
 
@@ -158,5 +158,5 @@ The metrics included, balanced accuracy, F1, precision and recall.
 
 Statistical testing including Spearmans rank correlation and Chi-squared testing was also used alongside graphical representation of results.
 
-8. "mel_vs_nonmel.csv"
+### 8. "mel_vs_nonmel.csv"
 This .csv contains the information as described in "ISIC_2019_Training_Metadata_with_full_paths_with_brisque_and_class.csv" but with adaptations, these include the binary lesion class, either MEL or NON_MEL. In addition, the age group that is now either one of four categories; 0-20, 21-40, 41-60 and >60 years.
