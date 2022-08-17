@@ -17,7 +17,7 @@ All of the training data including images, metadata and ground truth should be d
 
 ## Part 1: Image Quality
 
-1. "quality_assessment_models_file_reorganising.ipynb"
+### 1. "quality_assessment_models_file_reorganising.ipynb"
 The downloaded ISIC 2019 training dataset is split into train, validation and test splits using sklearn "train_test_split" function to an 80:10:10 split. Within each split, 8 folders are created, one for each skin lesion class. The images are then allocated to the correct folder using the class name within the image name. The final folder structure is organised in the following way:
 
 ```
@@ -52,7 +52,7 @@ skin_lesion_data\ISIC_2019_v2_prepro
 ```
 
 
-2. "pre_processing_classes.ipynb"
+### 2. "pre_processing_classes.ipynb"
 The images undergo pre-processing. Several techniques were trialled and the code for each technique is contained in this file.
 
 This file contains several classes, for image preprocessing. Including:
